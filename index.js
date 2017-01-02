@@ -1,7 +1,7 @@
 const http = require('http');
 const fs = require('fs');
 const Path = require('path');
-const images = [];
+const is = require('image-size');
 
 function start() {
 
@@ -66,14 +66,20 @@ function start() {
 
 fs.readdir('./repo', (err, files) => {
   var i = 0;
+  var images = [];
   files.forEach(file => {
-    images.push({
-      src: '/repo/' + file,
-      w: 1920,
-      h: 1080,
-      pid: i
-    });
-    i++;
+    try {
+      var dimensions = is('./repo/' + file);
+      images.push({
+        src: '/repo/' + file,
+        w: dimensions.width,
+        h: dimensions.height,
+        pid: i
+      });
+      i++;
+    } catch (err) {
+      console.error(err);
+    }
   });
 
   fs.writeFile('images.json', JSON.stringify(images), function(err) {
