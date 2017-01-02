@@ -1,0 +1,22 @@
+{
+  "name": "gallery",
+  "version": "1.0.0",
+  "description": "easy to setup image media server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adityasharat/gallery.git"
+  },
+  "author": "adityasharat",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/adityasharat/gallery/issues"
+  },
+  "homepage": "https://github.com/adityasharat/gallery#readme",
+  "dependencies": {
+    "image-size": "^0.5.1"
+  }
+}
